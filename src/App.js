@@ -1,12 +1,14 @@
 import React from 'react';
 import GlobalStyle  from './components/GlobalStyle';
-import AboutUsSection from './components/AboutUsSection';
+import About from './pages/About';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
 			<GlobalStyle />
-			<AboutUsSection />
+			<Nav />
+			<About />
     </div>
   );
 }
