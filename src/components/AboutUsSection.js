@@ -5,13 +5,13 @@ import capture from '../img/home1.png';
 
 // Import styles
 import styled from 'styled-components';
-import { Hero, Hide } from "../styles/styles";
+import { Hero, Content, Image, Hide } from "../styles/styles";
 
 const AboutUsSection = () => {
 
   return (
     <Hero>
-      <HeroContent>
+      <Content>
         <HeroHeader>
           <Hide>
             <h2 className="h2">
@@ -29,8 +29,8 @@ const AboutUsSection = () => {
             </h2>
           </Hide>
           <p className="parag">
-            Contact us for any photography or videography idea you may have.
-            We have professionals with amazing skills to help you achieve it.
+           <span>Contact us for any photography or videography idea you may have.</span>
+            <span>We have professionals with amazing skills to help you achieve it.</span>
           </p>
           <button>Contact us</button>
         </HeroHeader>
@@ -38,27 +38,28 @@ const AboutUsSection = () => {
         <HeroImage>
           <img src={capture} alt="A man with a camera" />
         </HeroImage>
-      </HeroContent>
+      </Content>
     </Hero>
   );
 }
 
-export const HeroContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 90vh;
-`;
-
 const HeroHeader = styled.div `
   flex: 1;
+  h2 {
+    span {
+      color: #23d997;
+    }
+  }
   p {
-    padding-right: 5rem;
+    padding: 2rem 0;
+    span {
+      display: block;
+      padding: 0.5rem 0;
+    }
   }
 `;
 
-const HeroImage = styled.div`
-  flex: 1;
+const HeroImage = styled(Image)`
   img {
     width: 100%;
     height: 80vh;
