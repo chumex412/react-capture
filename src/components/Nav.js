@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Import style
 import styled from 'styled-components';
@@ -12,17 +13,19 @@ const Nav = () => {
     <StyledNav>
       <NavContainer>
         <h1 className="h3">
-          Capture
+          <Link to="/">
+            Capture
+          </Link>
         </h1>
         <NavList>
           <li className="nav-list">
-            <a href="">About</a>
+            <Link to="/">About</Link>
           </li>
           <li className="nav-list">
-            <a href="">Our Services</a>
+            <Link to="/services">Our services</Link>
           </li>
           <li className="nav-list">
-            <a href="">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
         </NavList>
       </NavContainer>
