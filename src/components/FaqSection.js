@@ -81,6 +81,11 @@ const FaqSection = () => {
 const Faq = styled(Hero)`
   padding: 3rem 1.5rem;
   color: #fff;
+  header {
+    span {
+      color: #23d997;
+    }
+  }
 `;
 
 const FaqContent = styled(Content)`

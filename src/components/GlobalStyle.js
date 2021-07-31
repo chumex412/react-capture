@@ -28,19 +28,20 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1rem;
+    background-color: #1b1b1b;
   }
 
   :root {
     --type-scale: 1.25;
     --base-size: 1.45rem;
-    --height-scale: 1.28;
-    --line-height: 1.8rem;
+    --height-scale: 1.2;
+    --line-height: 2.1rem;
     --h5: var(--base-size);
-    --parag: calc(1.45rem * 1.25);
-    --h4: calc(var(--parag) * 1.25);
-    --h3: calc(var(--h4) * 1.25);
-    --h2: calc(var(--h3) * 1.25);
-    --h1: calc(var(--h2) * 1.25);
+    --parag: calc(var(--base-size) * var(--type-scale));
+    --h4: calc(var(--parag) * var(--type-scale));
+    --h3: calc(var(--h4) * var(--type-scale));
+    --h2: calc(var(--h3) * var(--type-scale));
+    --h1: calc(var(--h2) * var(--type-scale));
     --h5-Lheight: var(--line-height);
     --para-Lheight: calc(var(--line-height) * var(--height-scale));
     --h4-Lheight: calc(var(--para-Lheight) * var(--height-scale));
@@ -74,21 +75,33 @@ const GlobalStyle = createGlobalStyle`
     line-height: var(--h5-Lheight);
   }
   
-  .parag {
+  .parag,
+  a,
+  button {
     font-size: var(--parag);
     line-height: var(--para-Lheight);
   }
 
-  img, button, a, span {
+  img, 
+  button, 
+  a, 
+  span {
     display: inline-block;
   }
+  
 
   button {
     padding: 1rem 1.5rem;
     border-radius: 0.4rem;
-    border: 0.1rem solid ;
-  }
+    border: 0.2rem solid #23d997;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
 
+    &:hover {
+      background-color: #23d997;
+    }
+  }
 `;
 
 export default GlobalStyle;
