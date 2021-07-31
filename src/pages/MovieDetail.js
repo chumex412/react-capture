@@ -11,6 +11,9 @@ import { Hero, Content } from '../styles/styles';
 // Movie data
 import { MovieState } from '../components/moviesState';
 
+// Animation
+import { pageAnimation } from '../components/animation';
+
 const MovieDetail = () => {
   const history = useHistory();
   const url = history.location.pathname;
@@ -29,7 +32,7 @@ const MovieDetail = () => {
   return (
     (
       movie &&
-      <Movie>
+      <Movie variants={pageAnimation} exit="exit" initial="hidden" animate="show">
         <MovieContent>
           <h2 className="h3">Movie Detail</h2>
           <img src={movie.mainImg} alt={movie.title}loading="lazy" />
