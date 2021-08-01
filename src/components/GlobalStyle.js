@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1rem;
     background-color: #1b1b1b;
+    overflow-x: hidden;
   }
 
   :root {
@@ -89,7 +90,6 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
   }
   
-
   button {
     padding: 1rem 1.5rem;
     border-radius: 0.4rem;
@@ -100,6 +100,23 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover {
       background-color: #23d997;
+    }
+  }
+
+  @media only screen and (max-width: 960px) {
+    :root {
+      --type-scale: 1.23;
+      --base-size: 1.3rem;
+      --height-scale: 1.14;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    :root {
+      --base-size: 1.11rem;
+      --type-scale: 1.27;
+      --height-scale: 1.2;
+      --line-height: 1.6rem;
     }
   }
 `;

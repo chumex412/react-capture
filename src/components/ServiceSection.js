@@ -1,5 +1,11 @@
 import React from 'react';
 
+// Components
+import { useScroll } from './useScroll';
+
+// Animation
+import { scrollReveal } from './animation';
+
 // Import icons
 import clock from '../img/clock.svg';
 import money from '../img/money.svg';
@@ -14,13 +20,15 @@ import { Hero, Content, Image, Description } from '../styles/styles';
 
 const ServiceSection = () => {
 
+  const [element, controls] = useScroll();
+
   return (
-    <Services>
-      <Content>
-        <Image>
+    <Services variants={scrollReveal} ref={element} animate={controls} initial="hidden">
+      <ServicesContent>
+        <ServicesImg>
           <img src={home2} alt="Camera" />
-        </Image>
-        <Description>
+        </ServicesImg>
+        <ServicesDesc>
           <header>
             <h2 className="h2">
               High <span>quality</span>
@@ -73,8 +81,8 @@ const ServiceSection = () => {
               </div>
             </Card>
           </Cards>
-        </Description>
-      </Content>
+        </ServicesDesc>
+      </ServicesContent>
     </Services>
   );
 }
@@ -82,7 +90,32 @@ const ServiceSection = () => {
 const Services = styled(Hero)`
   padding: 4rem 1.5rem;
   header {
-    padding: 2rem 0;
+    padding: 2rem;
+  }
+`;
+
+const ServicesContent = styled(Content)`
+  @media only screen and (max-width: 960px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+const ServicesImg = styled(Image)`
+  @media only screen and (max-width: 960px) {
+    order: 2;
+    width: 100%;
+    padding: 1.5rem 0;
+
+    img {
+      width: 100%;
+    }
+  }
+`;
+
+const ServicesDesc = styled(Description)`
+  @media only screen and (max-width: 960px) {
+    order: 1;
   }
 `;
 
@@ -90,7 +123,7 @@ const Cards = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 1rem;
+  padding: 0 2rem;
 `;
 
 const Card = styled.div`
@@ -109,6 +142,14 @@ const Card = styled.div`
       color: #333;
       padding: 1rem;
       margin-left: 1.5rem;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    flex-basis: 100%;
+    text-align: center;
+
+    .icon {
+      justify-content: center;
     }
   }
 `;

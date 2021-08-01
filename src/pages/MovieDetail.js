@@ -80,6 +80,7 @@ const Awards = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 2rem 0;
 `;
 

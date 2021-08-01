@@ -22,6 +22,10 @@ const AwardLine = styled(Line)`
 const StyledAward = styled.div`
   flex-basis: 25.333%;
   color: #fff;
+
+  @media only screen and (max-width: 600px) {
+    flex-basis: 100%;
+  }
 `;
 
 export default Award;

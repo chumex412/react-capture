@@ -1,5 +1,12 @@
 import React from "react";
 
+// Components
+import Wave from "./Wave";
+
+// Animation
+import { motion } from "framer-motion";
+import { titleAnim, fade, photoAnim } from "./animation";
+
 // Import images
 import capture from '../img/home1.png';
 
@@ -14,30 +21,31 @@ const AboutUsSection = () => {
       <Content>
         <HeroHeader>
           <Hide>
-            <h2 className="h2">
+            <motion.h2 variants={titleAnim} className="h2">
               We work to make
-            </h2>
+            </motion.h2>
           </Hide>
           <Hide>
-            <h2 className="h2">
+            <motion.h2 variants={titleAnim} className="h2">
               your <span>dreams</span> come
-            </h2>
+            </motion.h2>
           </Hide>
           <Hide>
-            <h2 className="h2">
-              true
-            </h2>
+            <motion.h2 variants={titleAnim} className="h2">
+              true.
+            </motion.h2>
           </Hide>
-          <p className="parag">
-           <span>Contact us for any photography or videography idea you may have.</span>
+          <motion.p variants={fade} className="parag">
+            <span>Contact us for any photography or videography idea you may have.</span>
             <span>We have professionals with amazing skills to help you achieve it.</span>
-          </p>
-          <button>Contact us</button>
+          </motion.p>
+          <motion.button variants={fade}>Contact us</motion.button>
         </HeroHeader>
         
         <HeroImage>
-          <img src={capture} alt="A man with a camera" />
+          <motion.img src={capture} variants={photoAnim} alt="A man with a camera" />
         </HeroImage>
+        <Wave />
       </Content>
     </Hero>
   );
@@ -48,6 +56,7 @@ const HeroHeader = styled.div `
   h2 {
     span {
       color: #23d997;
+      z-index: 5;
     }
   }
   p {
@@ -57,9 +66,15 @@ const HeroHeader = styled.div `
       padding: 0.5rem 0;
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    padding: 3rem 0;
+    text-align: center;
+  }
 `;
 
 const HeroImage = styled(Image)`
+  z-index: 5;
   img {
     width: 100%;
     height: 80vh;
