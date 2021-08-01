@@ -1,78 +1,73 @@
 import React from 'react';
 
+// Animation
+import { AnimateSharedLayout } from 'framer-motion';
+import { scrollReveal } from './animation';
+
+// Components
+import Toggle from './Toggle';
+import { useScroll } from './useScroll';
+
 // Import styles
 import styled from 'styled-components';
 import { Hero, Content } from '../styles/styles';
 
 const FaqSection = () => {
+  const [element, controls] = useScroll();
 
   return (
-    <Faq>
+    <Faq variants={scrollReveal} ref={element} animate={controls} initial="hidden">
       <header>
         <h2 className="h3">
           Any questions? <span> FAQ </span>     
         </h2>
       </header>
       <FaqContent>
-        <div className="question">
-          <h3 className="h4">
-            How do i start?
-          </h3>
-          <div className="answer">
-            <p className="parag">
-              Lorem ipsum dolor sit amet.
-            </p>
-            <p className="parag">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
-            </p>
-          </div>
-          <FaqLine></FaqLine>
-        </div>
-
-        <div className="question">
-          <h3 className="h4">
-            Daily Schedule
-          </h3>
-          <div className="answer">
-            <p className="parag">
-              Lorem ipsum dolor sit amet.
-            </p>
-            <p className="parag">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
-            </p>
-          </div>
-          <FaqLine></FaqLine>
-        </div>
-        
-        <div className="question">
-          <h3 className="h4">
-            Different payment method
-          </h3>
-          <div className="answer">
-            <p className="parag">
-              Lorem ipsum dolor sit amet.
-            </p>
-            <p className="parag">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
-            </p>
-          </div>
-          <FaqLine></FaqLine>
-        </div>
-        
-        <div className="question">
-          <h3 className="h4">
-            What product do you offer.
-          </h3>
-          <div className="answer">
-            <p className="parag">
-              Lorem ipsum dolor sit amet.
-            </p>
-            <p className="parag">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
-            </p>
-          </div>
-          <FaqLine></FaqLine>
-        </div>
+        <AnimateSharedLayout>
+          <Toggle title="How do i start?">
+            <div className="answer">
+              <p className="parag">
+                Lorem ipsum dolor sit amet.
+              </p>
+              <p className="parag">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
+              </p>
+            </div>
+          </Toggle>
+  
+          <Toggle title="Daily Schedule">
+            <div className="answer">
+              <p className="parag">
+                Lorem ipsum dolor sit amet.
+              </p>
+              <p className="parag">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
+              </p>
+            </div>
+          </Toggle>
+          
+          <Toggle title="Different payment method">
+            <div className="answer">
+              <p className="parag">
+                Lorem ipsum dolor sit amet.
+              </p>
+              <p className="parag">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
+              </p>
+            </div>
+          </Toggle>
+          
+          <Toggle title="What product do you offer.">
+            <div className="answer">
+              <p className="parag">
+                Lorem ipsum dolor sit amet.
+              </p>
+              <p className="parag">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, animi!
+              </p>
+            </div>
+          </Toggle>
+        </AnimateSharedLayout>
       </FaqContent>
     </Faq>
   );
@@ -96,13 +91,6 @@ const FaqContent = styled(Content)`
       padding: 0.5rem 0;
     }
   }
-`;
-
-const FaqLine = styled.div`
-  width: 100%;
-  height: 0.5rem;
-  background: #fff;
-  margin-top: 1.5rem;
 `;
 
 export default FaqSection;
