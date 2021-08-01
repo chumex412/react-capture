@@ -35,6 +35,10 @@ const Nav = () => {
 
 const StyledNav = styled.nav`
   background-color: #282828;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
 `;
 
 const NavContainer = styled(Hero)`
